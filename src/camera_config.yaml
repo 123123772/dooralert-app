@@ -1,0 +1,14 @@
+camera:
+  fy: 721.5
+object_heights:
+  car: 1.5
+  cyclist: 1.2
+  person: 1.7
+warning_thresholds:
+  car: [10, 5]
+  cyclist: [12, 6]
+  person: [15, 8]
+conf_thresholds:
+  car: 0.5
+  cyclist: 0.5
+  person: 0.3
