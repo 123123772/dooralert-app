@@ -16,10 +16,16 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: 安装系统依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1-mesa-glx
+
       - name: 安装 Python 依赖
         run: |
           pip install --upgrade pip
           pip install flet
+          pip install opencv-python-headless ultralytics numpy pyyaml
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: 配置 Java 环境
@@ -30,7 +36,7 @@ jobs:
 
       - name: 执行 APK 构建
         run: |
-          yes | flet build apk --verbose
+          yes | flet build apk --verbose --include-packages opencv-python-headless
 
       - name: 上传 APK
         uses: actions/upload-artifact@v4
