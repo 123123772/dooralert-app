@@ -3,21 +3,19 @@ name = "door_alert_system"
 version = "1.0.0"
 description = "基于机器视觉的汽车开门后方来车预警系统"
 authors = [{ name = "王影", email = "your-email@example.com" }]
-requires-python = ">=3.9, <3.13"  # 请根据你虚拟环境中的实际 Python 版本修改
+requires-python = ">=3.9, <3.13"
 dependencies = [
     "flet>=0.28.3",
-    # "ultralytics>=8.0.0",   # 暂时注释
-    # "opencv-python>=4.5.0", # 暂时注释
-    # "numpy>=1.21.0",        # 可暂时注释
-    # "pyyaml>=6.0",
+    "ultralytics>=8.0.0",
+    "opencv-python>=4.5.0",
+    "numpy>=1.21.0",
+    "pyyaml>=6.0",
 ]
 
 [tool.flet]
-# 包名（反向域名格式，唯一标识你的应用）
 org = "com.nmu.dooralert"
-# 应用名称
 product = "DoorAlert"
-# 以下配置对于解决 OpenCV 等库的兼容性问题至关重要
+
 [tool.flet.compile]
 app = true
-packages = false  # 关键配置：禁止打包第三方包，避免 OpenCV 出错
+packages = false   # 关键：禁止编译第三方包
