@@ -20,7 +20,6 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install flet
-          pip install opencv-python-headless ultralytics numpy pyyaml
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: 配置 Java 环境
@@ -31,7 +30,7 @@ jobs:
 
       - name: 执行 APK 构建
         run: |
-          yes | flet build apk --verbose --include-packages opencv-python-headless
+          yes | flet build apk --verbose
 
       - name: 上传 APK
         uses: actions/upload-artifact@v4
